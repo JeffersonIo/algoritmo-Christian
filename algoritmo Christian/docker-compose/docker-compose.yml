@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  time_server:
+    build: ../server
+    ports:
+      - "5000:5000"
+    networks:
+      - christian_network
+
+  christian_client:
+    build: ../client
+    networks:
+      - christian_network
+
+networks:
+  christian_network:
+    driver: bridge
